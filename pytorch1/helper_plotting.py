@@ -96,6 +96,7 @@ def show_examples(model, data_loader, unnormalizer=None, class_dict=None):
 
         for idx, ax in enumerate(axes.ravel()):
             ax.imshow(nhw_img[idx], cmap='binary')
+            print(predictions[idx].item())
             if class_dict is not None:
                 ax.title.set_text(f'P: {class_dict[predictions[idx].item()]}'
                                   f'\nT: {class_dict[targets[idx].item()]}')
@@ -188,3 +189,4 @@ def plot_confusion_matrix(conf_mat,
     plt.xlabel('predicted label')
     plt.ylabel('true label')
     return fig, ax
+
